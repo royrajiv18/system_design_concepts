@@ -9,3 +9,5 @@
 # Web Storage
 
 # Authorization
+
+- never put authorization token in localstorage
