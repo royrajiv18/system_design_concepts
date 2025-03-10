@@ -88,4 +88,7 @@
   - Cookie (4kb-20kb)
   - Cache (~100mb)
 - Session Management
-  ![alt text]({63C0791A-808A-4460-B706-B42F1538CFF8}.png)
+
+### HTTPS:
+
+- ![alt text]({63C0791A-808A-4460-B706-B42F1538CFF8}.png)
