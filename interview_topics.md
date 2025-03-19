@@ -153,3 +153,37 @@
 
 - remove redundancy
 - simplifies nested data
+
+### WhiteList Validation
+
+- prevents xss, sql injection attacks etc
+- Whitelist validation is a security technique where only explicitly allowed (whitelisted) inputs, values, or data are accepted, and everything else is rejected by default.
+
+  - allowed specific filetypes -
+  - function validateFileType(fileName) {
+    const allowedExtensions = ["jpg", "png", "gif"];
+    const fileExtension = fileName.split(".").pop().toLowerCase();
+
+  return allowedExtensions.includes(fileExtension);
+  }
+
+console.log(validateFileType("image.jpg")); // ✅ true
+console.log(validateFileType("script.exe")); // ❌ false (rejected)
+
+- Escape user input
+- encodeURIComponent
+
+  - const userInput = "Hello World!";
+    const safeURL = "https://example.com/search?q=" + encodeURIComponent(userInput);
+    console.log(safeURL);
+    Output: "https://example.com/search?q=Hello%20World%21"
+
+- textcontext - const userInput = "<img src=x onerror=alert(1)>";
+  document.getElementById("output").textContent = userInput;
+- avoid eval and innerHTML
+- domPurify librabry to sanitize use input
+- dangerouslySetInnerHTML - is a special prop that allows you to insert raw HTML into a component. It is dangerous because it can introduce security vulnerabilities (like XSS attacks) if user-generated content is inserted without sanitization.
+  - Ex - function RawHtmlComponent() {
+    const htmlContent = { \_\_html: "<h2 style='color: red;'>Hello, World!</h2>" };
+    return <div dangerouslySetInnerHTML={htmlContent} />;}
+    export default RawHtmlComponent;
